@@ -7,5 +7,6 @@ namespace SuperDevStore
 {
     public class ProductVisist
     {
+        // TODO: ProductVisists class
     }
 }

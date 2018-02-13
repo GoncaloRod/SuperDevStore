@@ -7,5 +7,6 @@ namespace SuperDevStore
 {
     public class OrderDetail
     {
+        // TODO: OrderDetails class
     }
 }

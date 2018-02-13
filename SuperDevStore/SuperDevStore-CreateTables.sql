@@ -2,6 +2,7 @@
 	[id] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[name] VARCHAR(100) NOT NULL,
 	[email] VARCHAR(100) CHECK([email] LIKE '%@%.%') NOT NULL,
+	[password] VARCHAR(100) NOT NULL,
 	[active] BIT DEFAULT(1) NOT NULL,
 )
 
@@ -13,19 +14,6 @@ CREATE TABLE [users] (
 	[active] BIT DEFAULT(1) NOT NULL,
 )
 
-CREATE TABLE [categories] (
-	[id] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	[name] VARCHAR(100) NOT NULL,
-	[active] BIT DEFAULT(1) NOT NULL,
-)
-
-CREATE TABLE [sub_categories] (
-	[id] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	[name] VARCHAR(100) NOT NULL,
-	[active] BIT DEFAULT(1) NOT NULL,
-	[category_id] INT REFERENCES [categories]([id]) NOT NULL,
-)
-
 CREATE TABLE [products] (
 	[id] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[name] VARCHAR(100) NOT NULL,
@@ -33,7 +21,6 @@ CREATE TABLE [products] (
 	[description] TEXT NOT NULL,
 	[stock] INT DEFAULT(0) NOT NULL,
 	[active] BIT DEFAULT(1) NOT NULL,
-	[sub_categorie_id] INT REFERENCES [sub_categories]([id]) NOT NULL,
 )
 
 CREATE TABLE [product_images] (

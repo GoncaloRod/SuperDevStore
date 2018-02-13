@@ -7,5 +7,6 @@ namespace SuperDevStore
 {
     public class ShippingMethod
     {
+        // TODO: ShippingMethod class
     }
 }
