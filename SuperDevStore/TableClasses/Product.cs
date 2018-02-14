@@ -31,12 +31,12 @@ namespace SuperDevStore
 
         public Product(int Id, string Name, decimal Price, string Description, int Stock, bool Active)
         {
-            id          = Id;
-            name        = Name;
-            price       = Price;
+            id = Id;
+            name = Name;
+            price = Price;
             description = Description;
-            stock       = Stock;
-            active      = Active;
+            stock = Stock;
+            active = Active;
         }
 
         public List<ProductImage> Images()

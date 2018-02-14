@@ -28,11 +28,11 @@ namespace SuperDevStore
 
         public Admin(int Id, string Name, string Email, string Password, bool Active)
         {
-            id       = Id;
-            name     = Name;
-            email    = Email;
+            id = Id;
+            name = Name;
+            email = Email;
             passwrod = Password;
-            active   = Active;
+            active = Active;
         }
     }
 }

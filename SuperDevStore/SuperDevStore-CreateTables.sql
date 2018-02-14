@@ -46,7 +46,8 @@ CREATE TABLE [orders] (
 	[id] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[user_id] INT REFERENCES [users]([id]) NOT NULL,
 	[date] DATETIME	NOT NULL,
-	[shipping_adress] VARCHAR(100) NOT NULL,
+	[shipping_address] VARCHAR(100) NOT NULL,
+	[done] BIT DEFAULT(0) NOT NULL,
 	[shipping_method_id] INT REFERENCES [shipping_methods]([id]) NOT NULL,
 )
 

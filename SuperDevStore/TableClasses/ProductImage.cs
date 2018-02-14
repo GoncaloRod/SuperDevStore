@@ -18,6 +18,8 @@ namespace SuperDevStore
             {
                 images.Add(new ProductImage(int.Parse(row["id"].ToString()), row["image"].ToString(), bool.Parse(row["active"].ToString()), int.Parse(row["product_id"].ToString())));
             }
+
+            return images;
         }
 
         int id { get; }
@@ -27,9 +29,9 @@ namespace SuperDevStore
 
         public ProductImage(int Id, string Image, bool Active, int ProductId)
         {
-            id         = Id;
-            image      = Image;
-            active     = Active;
+            id = Id;
+            image = Image;
+            active = Active;
             product_id = ProductId;
         }
     }
