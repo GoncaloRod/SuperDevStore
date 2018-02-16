@@ -1,0 +1,17 @@
+﻿@font-face {
+    font-family: 'Inconsolata';
+    src: url('../fonts/Inconsolata.ttf');
+}
+
+.logo {
+    font-family: 'Inconsolata';
+    color: #333333;
+}
+
+.logo-blue {
+    color: #007bff;
+}
+
+.logo-small {
+    font-size: .9rem;
+}

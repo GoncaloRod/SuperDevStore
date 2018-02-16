@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.Master" />
+    <Content Include="fonts\Inconsolata.ttf" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,12 +81,15 @@
     <Content Include="App_Data\SuperDevStore_log.ldf">
       <DependentUpon>SuperDevStore.mdf</DependentUpon>
     </Content>
+    <Content Include="css\style.css" />
     <Content Include="Index.aspx" />
     <Content Include="SuperDevStore-CreateTables.sql" />
+    <Content Include="SuperDevStore-SeedTables.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminAuth.cs" />
+    <Compile Include="Alerts.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -46,7 +46,7 @@ namespace SuperDevStore
         {
             DataTable productDB = DB.Instance.ExecQuery($"SELECT * FROM products WHERE id = {product_id}");
 
-            Product product = new Product(int.Parse(productDB.Rows[0]["id"].ToString()), productDB.Rows[0]["name"].ToString(), decimal.Parse(productDB.Rows[0]["price"].ToString()), productDB.Rows[0]["description"].ToString(), int.Parse(productDB.Rows[0]["stock"].ToString()), bool.Parse(productDB.Rows[0]["active"].ToString())));
+            Product product = new Product(int.Parse(productDB.Rows[0]["id"].ToString()), productDB.Rows[0]["name"].ToString(), decimal.Parse(productDB.Rows[0]["price"].ToString()), productDB.Rows[0]["description"].ToString(), int.Parse(productDB.Rows[0]["stock"].ToString()), bool.Parse(productDB.Rows[0]["active"].ToString()));
 
             return product;
         }
