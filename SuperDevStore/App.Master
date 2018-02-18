@@ -5,6 +5,8 @@
     <head runat="server">
         <title>super dev; store</title>
 
+        <!-- Google ReCaptcha -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <!-- Bootstrap 4 -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
@@ -37,17 +39,17 @@
                     </ul>
 
                     <ul class="navbar-nav">
-                        <% if (SuperDevStore.UserAuth.Instance.Check())
-                            {%>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="Index.aspx"><% Response.Write(SuperDevStore.UserAuth.Instance.User().name); %></a>
-                        </li>
-                        <% }
-                        else
-                        {%>
-                        <li class="nav-item">
-                            <a class="nav-link" href="" data-toggle="modal" data-target="#login-modal">Login</a>
-                        </li>
+                        <% if (SuperDevStore.UserAuth.Instance.Check()) { %>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Account.aspx"><% Response.Write(SuperDevStore.UserAuth.Instance.User().name); %></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Logout.aspx"><i class="fas fa-sign-out-alt"></i></a>
+                            </li>
+                        <% } else { %>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="" data-toggle="modal" data-target="#login-modal">Login</a>
+                            </li>
                         <% } %>
                     </ul>
                 </div>
@@ -55,15 +57,15 @@
 
             <!-- Alerts -->
             <div id="alertsContainer" runat="server" style="width: 50%; margin-left: 25%;">
-                <% foreach (var message in SuperDevStore.Alerts.Instance.successMessages) { %>
-                    <div class="alert alert-success alert-dismissable fade show" style="position: absolute; width: inherit;">
+                <% foreach (var message in SuperDevStore.Alerts.successMessages) { %>
+                    <div class="alert alert-success alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 10px;">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <% Response.Write(message); %>
                     </div>
                 <% } %>
 
-                <% foreach (var message in SuperDevStore.Alerts.Instance.errorMessages) { %>
-                    <div class="alert alert-danger alert-dismissable fade show" style="position: absolute; width: inherit;">
+                <% foreach (var message in SuperDevStore.Alerts.errorMessages) { %>
+                    <div class="alert alert-danger alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 10px;">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <% Response.Write(message); %>
                     </div>
@@ -92,7 +94,6 @@
                             <div class="form-group" runat="server">
                                 <label for="txtEmailLogin">Email</label>
                                 <asp:TextBox CssClass="form-control" TextMode="Email" ID="txtEmailLogin" placeholder="Email" runat="server"></asp:TextBox>
-                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                             <!-- Password -->
                             <div class="form-group" runat="server">
@@ -100,7 +101,7 @@
                                 <asp:TextBox CssClass="form-control" TextMode="Password" ID="txtPasswordLogin" placeholder="Password" runat="server"></asp:TextBox>
                             </div>
 
-                            <a class="btn btn-sm btn-outline-primary" href="" data-toggle="modal" data-target="#register-modal">Register</a>
+                            <a class="btn btn-sm btn-outline-primary" href="" data-toggle="modal" data-target="#register-modal" data-dismiss="modal">Register</a>
                             <asp:Button CssClass="btn btn-sm btn-primary float-right" ID="btnLogin" Text="Login" runat="server" OnClick="btnLogin_Click"/>
                         </div>
                     </div>
@@ -121,12 +122,13 @@
                             <!-- Name -->
                             <div class="form-group" runat="server">
                                 <label for="txtNameRegister">Name</label>
-                                <asp:TextBox CssClass="form-control" TextMode="Email" ID="txtNameRegister" placeholder="Name" runat="server"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtNameRegister" placeholder="Name" runat="server"></asp:TextBox>
                             </div>
                             <!-- Email -->
                             <div class="form-group" runat="server">
                                 <label for="txtEmailRegister">Email</label>
                                 <asp:TextBox CssClass="form-control" TextMode="Email" ID="txtEmailRegister" placeholder="Email" runat="server"></asp:TextBox>
+                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                             <!-- Password -->
                             <div class="form-group" runat="server">
@@ -138,8 +140,10 @@
                                 <label for="txtRetryPasswordRegister">Retry Password</label>
                                 <asp:TextBox CssClass="form-control" TextMode="Password" ID="txtRetryPasswordRegister" placeholder="Retry Password" runat="server"></asp:TextBox>
                             </div>
+                            <!-- Google ReCaptcha -->
+                            <!--<div class="g-recaptcha" data-sitekey="6LcpEUcUAAAAAD32EEoYWMc03gllJsa6uHBE-IsO"></div>-->
 
-                            <a class="btn btn-sm btn-outline-primary" href="" data-toggle="modal" data-target="#login-modal">Login</a>
+                            <a class="btn btn-sm btn-outline-primary" href="" data-toggle="modal" data-target="#login-modal" data-dismiss="modal">Login</a>
                             <asp:Button CssClass="btn btn-sm btn-primary float-right" ID="btnRegister" Text="Register" runat="server" OnClick="btnRegister_Click"/>
                         </div>
                     </div>

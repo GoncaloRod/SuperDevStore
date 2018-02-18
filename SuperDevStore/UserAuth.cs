@@ -35,9 +35,7 @@ namespace SuperDevStore
                 new SqlParameter() {ParameterName = "@password", SqlDbType = SqlDbType.VarChar, Value = password},
             };
 
-
-            DataTable userDB = new DataTable();
-            userDB = DB.Instance.ExecQuery(sql, parameters);
+            DataTable userDB = DB.Instance.ExecQuery(sql, parameters);
 
             if (userDB != null && userDB.Rows.Count != 0)
             {

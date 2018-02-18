@@ -1,31 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace SuperDevStore
 {
     public class Alerts
     {
-        #region Singloton
-        private static Alerts instance;
+        public static List<string> successMessages = new List<string>();
 
-        public static Alerts Instance
-        {
-            get
-            {
-                if (instance == null) instance = new Alerts();
+        public static List<string> errorMessages = new List<string>();
 
-                return instance;
-            }
-        }
-        #endregion
-
-        public List<string> successMessages;
-
-        public List<string> errorMessages;
-
-        public void ClearMessages()
+        public static void ClearMessages()
         {
             successMessages.Clear();
             errorMessages.Clear();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace SuperDevStore
 {
@@ -26,7 +27,15 @@ namespace SuperDevStore
         // Attempt to login with a given email and password. Return true if credentials are valid and false if not
         public bool Attempt(string email, string password)
         {
-            DataTable adminDB = DB.Instance.ExecQuery($"SELECT * FROM admins WHERE email = {email} AND password = {password}");
+            string sql = "SELECT * FROM admins WHERE email = @email AND password = HASHBYTES('SHA2_512', @password)";
+
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter() {ParameterName = "@email", SqlDbType = SqlDbType.VarChar, Value = email},
+                new SqlParameter() {ParameterName = "@password", SqlDbType = SqlDbType.VarChar, Value = password},
+            };
+
+            DataTable adminDB = DB.Instance.ExecQuery(sql, parameters);
 
             if (adminDB != null && adminDB.Rows.Count != 0)
             {

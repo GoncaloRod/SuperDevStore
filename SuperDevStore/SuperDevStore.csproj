@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminLogin.aspx" />
     <Content Include="App.Master" />
     <Content Include="fonts\Inconsolata.ttf" />
     <None Include="packages.config" />
@@ -83,12 +84,22 @@
     </Content>
     <Content Include="css\style.css" />
     <Content Include="Index.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="SuperDevStore-CreateTables.sql" />
     <Content Include="SuperDevStore-SeedTables.sql" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminAuth.cs" />
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Alerts.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -97,6 +108,15 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mail.cs" />
+    <Compile Include="ReCaptcha.cs" />
     <Compile Include="TableClasses\Admin.cs" />
     <Compile Include="App.Master.cs">
       <DependentUpon>App.Master</DependentUpon>
