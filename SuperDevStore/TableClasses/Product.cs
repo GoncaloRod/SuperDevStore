@@ -22,6 +22,20 @@ namespace SuperDevStore
             return products;
         }
 
+        public static List<Product> LowStock()
+        {
+            List<Product> products = new List<Product>();
+
+            DataTable productsDB = DB.Instance.ExecQuery("SELECT * FROM products WHERE stock < 5");
+
+            foreach (DataRow row in productsDB.Rows)
+            {
+                products.Add(new Product(int.Parse(row["id"].ToString()), row["name"].ToString(), decimal.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["stock"].ToString()), bool.Parse(row["active"].ToString())));
+            }
+
+            return products;
+        }
+
         int id { get; }
         string name { get; }
         decimal price { get; }

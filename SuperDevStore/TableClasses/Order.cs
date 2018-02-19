@@ -22,6 +22,47 @@ namespace SuperDevStore
             return orders;
         }
 
+        public static DataTable AllDataTable()
+        {
+            return DB.Instance.ExecQuery("SELECT * FROM orders");
+        }
+
+        public static DataTable AllPendingDataTable()
+        {
+            return DB.Instance.ExecQuery("SELECT * FROM orders WHERE done = 0");
+        }
+
+        public static DataTable AllDoneDataTable()
+        {
+            return DB.Instance.ExecQuery("SELECT * FROM orders WHERE done = 1");
+        }
+
+        public static List<Order> PendingOrders()
+        {
+            List<Order> orders = new List<Order>();
+
+            DataTable ordersDB = DB.Instance.ExecQuery("SELECT * FROM orders WHERE done = 0");
+
+            foreach (DataRow row in ordersDB.Rows)
+            {
+                orders.Add(new Order(int.Parse(row["id"].ToString()), int.Parse(row["user_id"].ToString()), DateTime.Parse(row["date"].ToString()), row["shipping_address"].ToString(), bool.Parse(row["done"].ToString()), int.Parse(row["shipping_method_id"].ToString())));
+            }
+
+            return orders;
+        }
+
+        public static void FinishOrder(int Id)
+        {
+            // No need to use paramets because we know that Id is a number
+            DB.Instance.ExecSQL($"UPDATE orders SET done = 1 WHERE id = {Id}");
+        }
+
+        public static void UnfinishOrder(int Id)
+        {
+            // No need to use paramets because we know that Id is a number
+            DB.Instance.ExecSQL($"UPDATE orders SET done = 0 WHERE id = {Id}");
+        }
+
         public int id { get; }
         public int user_id { get; }
         public DateTime date { get; }

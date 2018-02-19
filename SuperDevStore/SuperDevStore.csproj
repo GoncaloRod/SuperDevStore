@@ -66,9 +66,43 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminDashboard.aspx" />
+    <Content Include="AdminFinishedOrders.aspx" />
+    <Content Include="AdminFinishOrder.aspx" />
     <Content Include="AdminLogin.aspx" />
+    <Content Include="AdminLogout.aspx" />
+    <Content Include="AdminOrders.aspx" />
+    <Content Include="AdminProducts.aspx" />
+    <Content Include="AdminUnfinishOrder.aspx" />
     <Content Include="App.Master" />
+    <Content Include="css\bootstrap\bootstrap-grid.css" />
+    <Content Include="css\bootstrap\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap\bootstrap.css" />
+    <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\fontawsome\fa-brands.css" />
+    <Content Include="css\fontawsome\fa-brands.min.css" />
+    <Content Include="css\fontawsome\fa-regular.css" />
+    <Content Include="css\fontawsome\fa-regular.min.css" />
+    <Content Include="css\fontawsome\fa-solid.css" />
+    <Content Include="css\fontawsome\fa-solid.min.css" />
+    <Content Include="css\fontawsome\fontawesome-all.css" />
+    <Content Include="css\fontawsome\fontawesome-all.min.css" />
+    <Content Include="css\fontawsome\fontawesome.css" />
+    <Content Include="css\fontawsome\fontawesome.min.css" />
     <Content Include="fonts\Inconsolata.ttf" />
+    <Content Include="AdminApp.Master" />
+    <Content Include="css\bootstrap\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap\bootstrap.css.map" />
+    <Content Include="css\bootstrap\bootstrap.min.css.map" />
+    <Content Include="js\bootstrap.bundle.js.map" />
+    <Content Include="js\bootstrap.bundle.min.js.map" />
+    <Content Include="js\bootstrap.js.map" />
+    <Content Include="js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -84,6 +118,10 @@
     </Content>
     <Content Include="css\style.css" />
     <Content Include="Index.aspx" />
+    <Content Include="js\bootstrap.bundle.js" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="Logout.aspx" />
     <Content Include="SuperDevStore-CreateTables.sql" />
     <Content Include="SuperDevStore-SeedTables.sql" />
@@ -92,13 +130,69 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminApp.Master.cs">
+      <DependentUpon>AdminApp.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminApp.Master.designer.cs">
+      <DependentUpon>AdminApp.Master</DependentUpon>
+    </Compile>
     <Compile Include="AdminAuth.cs" />
+    <Compile Include="AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFinishedOrders.aspx.cs">
+      <DependentUpon>AdminFinishedOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminFinishedOrders.aspx.designer.cs">
+      <DependentUpon>AdminFinishedOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFinishOrder.aspx.cs">
+      <DependentUpon>AdminFinishOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminFinishOrder.aspx.designer.cs">
+      <DependentUpon>AdminFinishOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogout.aspx.cs">
+      <DependentUpon>AdminLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogout.aspx.designer.cs">
+      <DependentUpon>AdminLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrders.aspx.cs">
+      <DependentUpon>AdminOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminOrders.aspx.designer.cs">
+      <DependentUpon>AdminOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProducts.aspx.cs">
+      <DependentUpon>AdminProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProducts.aspx.designer.cs">
+      <DependentUpon>AdminProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUnfinishOrder.aspx.cs">
+      <DependentUpon>AdminUnfinishOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUnfinishOrder.aspx.designer.cs">
+      <DependentUpon>AdminUnfinishOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Alerts.cs" />
     <Compile Include="Index.aspx.cs">

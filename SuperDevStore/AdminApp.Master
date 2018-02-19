@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminApp.master.cs" Inherits="SuperDevStore.AdminApp" %>
+<!DOCTYPE html>
+<html>
+    <head runat="server">
+        <title>super dev, store admin</title>
+        
+        <!-- Google ReCaptcha -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <!-- Bootstrap 4 -->
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/jquery-1.12.4.min.js">\x3C/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Font Awsome -->
+        <link rel="stylesheet" href="css/fontawsome/fontawesome-all.min.css">
+        <!-- Custom Style -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <form runat="server">
+            <!--  Header Menu -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="Index.aspx">
+                    <span class="logo">super <span class="logo-blue">dev</span>; <span class="logo-small">store admin</span></span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="AdminDashboard.aspx">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="AdminProducts.aspx">Products</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="AdminOrders.aspx">Peding Orders</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="AdminFinishedOrders.aspx">Finished Orders</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <% if (SuperDevStore.AdminAuth.Instance.Check()) { %>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Account.aspx"><% Response.Write(SuperDevStore.AdminAuth.Instance.Admin().name); %></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="AdminLogout.aspx"><i class="fas fa-sign-out-alt"></i></a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Alerts -->
+            <div id="alertsContainer" runat="server" style="width: 50%; margin-left: 25%;">
+                <% foreach (var message in SuperDevStore.Alerts.successMessages) { %>
+                    <div class="alert alert-success alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 5px; z-index: 1000;">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <% Response.Write(message); %>
+                    </div>
+                <% } %>
+
+                <% foreach (var message in SuperDevStore.Alerts.errorMessages) { %>
+                    <div class="alert alert-danger alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 5px; z-index: 1000;">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <% Response.Write(message); %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="container" style="margin-top: 25px;">
+                <!-- Content -->
+                <asp:ContentPlaceHolder ID="content" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <!-- Modals -->
+            <asp:ContentPlaceHolder ID="modals" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Scripts -->
+            <asp:ContentPlaceHolder ID="scripts" runat="server">
+            </asp:ContentPlaceHolder>
+        </form>
+    </body>
+</html>
