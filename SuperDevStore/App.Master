@@ -58,18 +58,18 @@
             <!-- Alerts -->
             <div id="alertsContainer" runat="server" style="width: 50%; margin-left: 25%;">
                 <% foreach (var message in SuperDevStore.Alerts.successMessages) { %>
-                    <div class="alert alert-success alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 5px; z-index: 1000;">
+                    <div class="alert alert-success alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 5px; z-index: 2000;">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <% Response.Write(message); %>
                     </div>
                 <% } %>
 
                 <% foreach (var message in SuperDevStore.Alerts.errorMessages) { %>
-                    <div class="alert alert-danger alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 5px; z-index: 1000;">
+                    <div class="alert alert-danger alert-dismissable fade show" style="position: absolute; width: inherit; margin-top: 5px; z-index: 2000;">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <% Response.Write(message); %>
                     </div>
-                <% } %>
+                <% } SuperDevStore.Alerts.ClearMessages(); %>
             </div>
 
             <div class="container" style="margin-top: 25px;">

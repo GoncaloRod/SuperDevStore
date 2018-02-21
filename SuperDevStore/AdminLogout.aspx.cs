@@ -11,8 +11,6 @@ namespace SuperDevStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!AdminAuth.Instance.Check()) Response.Redirect("Index.aspx");
-
             AdminAuth.Instance.Destroy();
 
             Response.Redirect("Index.aspx");

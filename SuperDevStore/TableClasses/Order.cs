@@ -53,14 +53,26 @@ namespace SuperDevStore
 
         public static void FinishOrder(int Id)
         {
-            // No need to use paramets because we know that Id is a number
             DB.Instance.ExecSQL($"UPDATE orders SET done = 1 WHERE id = {Id}");
         }
 
         public static void UnfinishOrder(int Id)
         {
-            // No need to use paramets because we know that Id is a number
             DB.Instance.ExecSQL($"UPDATE orders SET done = 0 WHERE id = {Id}");
+        }
+
+        public static Order Find(int Id)
+        {
+            Order order = null;
+
+            DataTable orderDB = DB.Instance.ExecQuery($"SELECT * FROM orders WHERE id = {Id}");
+
+            if (orderDB != null && orderDB.Rows.Count != 0)
+            {
+                order = new Order(int.Parse(orderDB.Rows[0]["id"].ToString()), int.Parse(orderDB.Rows[0]["user_id"].ToString()), DateTime.Parse(orderDB.Rows[0]["date"].ToString()), orderDB.Rows[0]["shipping_address"].ToString(), bool.Parse(orderDB.Rows[0]["done"].ToString()), int.Parse(orderDB.Rows[0]["shipping_method_id"].ToString()));
+            }
+
+            return order;
         }
 
         public int id { get; }
@@ -101,6 +113,11 @@ namespace SuperDevStore
             }
 
             return details;
+        }
+
+        public DataTable DetailsDataTable()
+        {
+            return DB.Instance.ExecQuery($"SELECT order_details.id, order_id, product_id, products.name AS product_name, quantity, unit_price FROM order_details, products WHERE order_id = {id} AND products.id = product_id");
         }
 
         public ShippingMethod ShippingMethod()

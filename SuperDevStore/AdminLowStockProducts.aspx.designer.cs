@@ -10,7 +10,7 @@
 namespace SuperDevStore {
     
     
-    public partial class AdminProducts {
+    public partial class AdminLowStockProducts {
         
         /// <summary>
         /// gvProducts control.

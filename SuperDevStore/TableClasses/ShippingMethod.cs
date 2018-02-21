@@ -22,9 +22,9 @@ namespace SuperDevStore
             return methods;
         }
 
-        int id { get; }
-        string name { get; }
-        bool active { get; }
+        public int id { get; }
+        public string name { get; }
+        public bool active { get; }
 
         public ShippingMethod(int Id, string Name, bool Active)
         {

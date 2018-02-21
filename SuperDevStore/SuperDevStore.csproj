@@ -66,12 +66,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminCreateProduct.aspx" />
     <Content Include="AdminDashboard.aspx" />
+    <Content Include="AdminEditProduct.aspx" />
     <Content Include="AdminFinishedOrders.aspx" />
     <Content Include="AdminFinishOrder.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminLogout.aspx" />
+    <Content Include="AdminLowStockProducts.aspx" />
+    <Content Include="AdminOrderDetails.aspx" />
     <Content Include="AdminOrders.aspx" />
+    <Content Include="AdminProductDetails.aspx" />
     <Content Include="AdminProducts.aspx" />
     <Content Include="AdminUnfinishOrder.aspx" />
     <Content Include="App.Master" />
@@ -138,12 +143,26 @@
       <DependentUpon>AdminApp.Master</DependentUpon>
     </Compile>
     <Compile Include="AdminAuth.cs" />
+    <Compile Include="AdminCreateProduct.aspx.cs">
+      <DependentUpon>AdminCreateProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCreateProduct.aspx.designer.cs">
+      <DependentUpon>AdminCreateProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboard.aspx.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEditProduct.aspx.cs">
+      <DependentUpon>AdminEditProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEditProduct.aspx.designer.cs">
+      <DependentUpon>AdminEditProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminFinishedOrders.aspx.cs">
       <DependentUpon>AdminFinishedOrders.aspx</DependentUpon>
@@ -173,12 +192,33 @@
     <Compile Include="AdminLogout.aspx.designer.cs">
       <DependentUpon>AdminLogout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminLowStockProducts.aspx.cs">
+      <DependentUpon>AdminLowStockProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLowStockProducts.aspx.designer.cs">
+      <DependentUpon>AdminLowStockProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrderDetails.aspx.cs">
+      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminOrderDetails.aspx.designer.cs">
+      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminOrders.aspx.cs">
       <DependentUpon>AdminOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminOrders.aspx.designer.cs">
       <DependentUpon>AdminOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductDetails.aspx.cs">
+      <DependentUpon>AdminProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProductDetails.aspx.designer.cs">
+      <DependentUpon>AdminProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminProducts.aspx.cs">
       <DependentUpon>AdminProducts.aspx</DependentUpon>

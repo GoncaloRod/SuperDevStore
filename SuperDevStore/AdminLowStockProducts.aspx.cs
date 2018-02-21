@@ -8,20 +8,15 @@ using System.Data;
 
 namespace SuperDevStore
 {
-    public partial class AdminProducts : System.Web.UI.Page
+    public partial class AdminLowStockProducts : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            UpdateGridView();
-        }
-
-        private void UpdateGridView()
         {
             gvProducts.Columns.Clear();
             gvProducts.DataSource = null;
             gvProducts.DataBind();
 
-            DataTable data = Product.AllDataTable();
+            DataTable data = Product.LowStockDataTable();
 
             if (data == null || data.Rows.Count == 0) return;
 

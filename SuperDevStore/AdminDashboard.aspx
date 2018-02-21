@@ -7,7 +7,7 @@
                 <div class="card-header">Pending Orders</div>
                 <div class="card-body">
                     <h2 class="card-title"><% Response.Write(SuperDevStore.Order.PendingOrders().Count); %> Pending Orders</h2>
-                    <a class="float-right" href="Orders.aspx" style="color: white;">Read More</a>
+                    <a class="float-right" href="AdminOrders.aspx" style="color: white;">Read More</a>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
                 <div class="card-header">Low Stock Products</div>
                 <div class="card-body">
                     <h2 class="card-title"><% Response.Write(SuperDevStore.Product.LowStock().Count); %> Low Stock Products</h2>
-                    <a class="float-right" href="LowStockProducts.aspx" style="color: white;">Read More</a>
+                    <a class="float-right" href="AdminLowStockProducts.aspx" style="color: white;">Read More</a>
                 </div>
             </div>
         </div>
