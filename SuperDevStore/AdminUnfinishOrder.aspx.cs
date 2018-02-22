@@ -24,7 +24,7 @@ namespace SuperDevStore
                 Alerts.errorMessages.Add(error.Message);
             }
 
-            Response.Redirect("AdminFinishedOrders.aspx");
+            Response.Redirect("AdminFinishedOrders.aspx", false);
         }
     }
 }

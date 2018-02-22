@@ -33,7 +33,7 @@ namespace SuperDevStore
             {
                 Alerts.errorMessages.Add(error.Message);
 
-                Response.Redirect("Products.aspx");
+                Response.Redirect("Products.aspx", false);
             }
         }
     }

@@ -26,6 +26,12 @@
         <asp:TextBox CssClass="form-control" ID="txtStock" placeholder="Stock" runat="server"></asp:TextBox>
     </div>
 
+    <!-- Upload Pictures -->
+    <div class="form-group" runat="server">
+        <label for="fileUplaod">Upload Photos</label>
+        <asp:FileUpload runat="server" ID="fileUpload" CssClass="form-control-file" AllowMultiple="true" accept="image/*"/>
+    </div>
+
     <asp:Button CssClass="btn btn-sm btn-primary float-right" ID="btnCreate" Text="Create" runat="server" OnClick="btnCreate_Click"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="modals" runat="server">

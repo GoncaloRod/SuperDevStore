@@ -60,9 +60,9 @@ namespace SuperDevStore
             return product;
         }
 
-        public static void Crate(string Name, double Price, string Description, int Stock)
+        public static int Create(string Name, double Price, string Description, int Stock)
         {
-            DB.Instance.ExecSQL($"INSERT INTO products(name, price, description, stock) VALUES('{Name}', {Price}, '{Description}', {Stock})");
+            return int.Parse(DB.Instance.ExecQuery($"INSERT INTO products(name, price, description, stock) VALUES('{Name}', {Price}, '{Description}', {Stock});SELECT CAST(SCOPE_IDENTITY() AS INT);").Rows[0][0].ToString());
         }
 
         public int id { get; }

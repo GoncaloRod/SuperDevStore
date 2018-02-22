@@ -65,7 +65,7 @@ namespace SuperDevStore
             {
                 Alerts.errorMessages.Add(error.Message);
 
-                Response.Redirect("Orders.aspx");
+                Response.Redirect("Orders.aspx", false);
             }
         }
     }

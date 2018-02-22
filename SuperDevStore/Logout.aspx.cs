@@ -13,13 +13,13 @@ namespace SuperDevStore
         {
             if (!IsPostBack) Alerts.ClearMessages();
 
-            if (!UserAuth.Instance.Check()) Response.Redirect("Index.aspx");
+            if (!UserAuth.Instance.Check()) Response.Redirect("Index.aspx", false);
 
             // Call logout method
             UserAuth.Instance.Destroy();
 
             // Redirect to Homepage
-            Response.Redirect("Index.aspx");
+            Response.Redirect("Index.aspx", false);
         }
     }
 }

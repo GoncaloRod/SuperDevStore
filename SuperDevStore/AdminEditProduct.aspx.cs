@@ -35,7 +35,7 @@ namespace SuperDevStore
             {
                 Alerts.errorMessages.Add(error.Message);
 
-                Response.Redirect("Products.aspx");
+                Response.Redirect("Products.aspx", false);
             }
         }
 
@@ -62,7 +62,7 @@ namespace SuperDevStore
 
                 Alerts.successMessages.Add("Product updated with success!");
 
-                Response.Redirect($"AdminProductDetails.aspx?id={Request["id"]}");
+                Response.Redirect($"AdminProductDetails.aspx?id={Request["id"]}", false);
             }
             catch (Exception error)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace SuperDevStore
 {
@@ -22,10 +23,22 @@ namespace SuperDevStore
             return images;
         }
 
-        int id { get; }
-        string image { get; }
-        bool active { get; }
-        int product_id { get; }
+        public static void Create(string Image, int ProductId)
+        {
+            string sql = "INSERT INTO product_images(image, product_id) VALUES(@image, @product_id)";
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter() {ParameterName = "@image", SqlDbType = SqlDbType.VarChar, Value = Image},
+                new SqlParameter() {ParameterName = "@product_id", SqlDbType = SqlDbType.Int, Value = ProductId}
+            };
+
+            DB.Instance.ExecSQL(sql, parameters);
+        }
+
+        public int id { get; }
+        public string image { get; }
+        public bool active { get; }
+        public int product_id { get; }
 
         public ProductImage(int Id, string Image, bool Active, int ProductId)
         {

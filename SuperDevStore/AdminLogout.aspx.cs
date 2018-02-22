@@ -13,7 +13,7 @@ namespace SuperDevStore
         {
             AdminAuth.Instance.Destroy();
 
-            Response.Redirect("Index.aspx");
+            Response.Redirect("Index.aspx", false);
         }
     }
 }

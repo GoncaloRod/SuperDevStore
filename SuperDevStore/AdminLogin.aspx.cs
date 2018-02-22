@@ -31,7 +31,7 @@ namespace SuperDevStore
                 {
                     Alerts.successMessages.Add($"Wellcome back {AdminAuth.Instance.Admin().name}");
 
-                    Response.Redirect("AdminDashboard.aspx");
+                    Response.Redirect("AdminDashboard.aspx", false);
                 }
             }
             catch (Exception error)
