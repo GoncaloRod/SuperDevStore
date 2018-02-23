@@ -82,6 +82,7 @@
     <Content Include="AdminUnfinishOrder.aspx" />
     <Content Include="AllProducts.aspx" />
     <Content Include="App.Master" />
+    <Content Include="Checkout.aspx" />
     <Content Include="css\bootstrap\bootstrap-grid.css" />
     <Content Include="css\bootstrap\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap\bootstrap-reboot.css" />
@@ -129,6 +130,7 @@
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="RemoveFromCart.aspx" />
     <Content Include="ShoppingCart.aspx" />
@@ -253,12 +255,26 @@
     <Compile Include="AllProducts.aspx.designer.cs">
       <DependentUpon>AllProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

@@ -22,6 +22,20 @@ namespace SuperDevStore
             return methods;
         }
 
+        public static List<ShippingMethod> AllActive()
+        {
+            List<ShippingMethod> methods = new List<ShippingMethod>();
+
+            DataTable methodsDB = DB.Instance.ExecQuery("SELECT * FROM shipping_methods WHERE active = 1");
+
+            foreach (DataRow row in methodsDB.Rows)
+            {
+                methods.Add(new ShippingMethod(int.Parse(row["id"].ToString()), row["name"].ToString(), bool.Parse(row["active"].ToString())));
+            }
+
+            return methods;
+        }
+
         public int id { get; }
         public string name { get; }
         public bool active { get; }

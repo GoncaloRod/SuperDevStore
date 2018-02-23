@@ -30,6 +30,8 @@
                 </tbody>
             </table>
         </div>
+        
+        <a class="btn btn-primary btn-sm float-right" href="Checkout.aspx"><i class="fas fa-credit-card"></i> Checkout</a>
     <% } else { %>
         <div class="alert alert-primary" style="margin-top: 25px;">
             Shopping Cart is empty!

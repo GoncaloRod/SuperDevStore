@@ -16,70 +16,84 @@ namespace SuperDevStore
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            if (!UserAuth.Instance.Check())
             {
-                string email = txtEmailLogin.Text;
-                string password = txtPasswordLogin.Text;
+                try
+                {
+                    string email = txtEmailLogin.Text;
+                    string password = txtPasswordLogin.Text;
 
-                if (!UserAuth.Instance.Attempt(email, password))
-                {
-                    Alerts.errorMessages.Add("Login failed!");
+                    if (!UserAuth.Instance.Attempt(email, password))
+                    {
+                        Alerts.errorMessages.Add("Login failed!");
+                    }
+                    else
+                    {
+                        Alerts.successMessages.Add($"Wellcome back {UserAuth.Instance.User().name}");
+                    }
                 }
-                else
+                catch (Exception error)
                 {
-                    Alerts.successMessages.Add($"Wellcome back {UserAuth.Instance.User().name}");
+                    Alerts.errorMessages.Add(error.Message);
                 }
             }
-            catch (Exception error)
+            else
             {
-                Alerts.errorMessages.Add(error.Message);
+                Response.Redirect("Index.aspx");
             }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            try
+            if (!UserAuth.Instance.Check())
             {
-                string name = txtNameRegister.Text;
-                string email = txtEmailRegister.Text;
-                string password = txtPasswordRegister.Text;
-                string retryPassword = txtRetryPasswordRegister.Text;
-
-                if (name == String.Empty)
+                try
                 {
-                    throw new Exception("Name is required!");
+                    string name = txtNameRegister.Text;
+                    string email = txtEmailRegister.Text;
+                    string password = txtPasswordRegister.Text;
+                    string retryPassword = txtRetryPasswordRegister.Text;
+
+                    if (name == String.Empty)
+                    {
+                        throw new Exception("Name is required!");
+                    }
+
+                    if (name == String.Empty || !email.Contains('@'))
+                    {
+                        throw new Exception("Invalid email!");
+                    }
+
+                    if (password == String.Empty)
+                    {
+                        throw new Exception("Password is required!");
+                    }
+
+                    if (retryPassword == String.Empty)
+                    {
+                        throw new Exception("Retry Password is required!");
+                    }
+
+                    if (password != retryPassword)
+                    {
+                        throw new Exception("Passwords does not match!");
+                    }
+
+                    // TODO: ReCaptcha
+
+                    if (User.Create(name, email, password))
+                    {
+                        Alerts.successMessages.Add("Account created with success!");
+                    }
                 }
-
-                if (name == String.Empty || !email.Contains('@'))
+                catch (Exception error)
                 {
-                    throw new Exception("Invalid email!");
-                }
-
-                if (password == String.Empty)
-                {
-                    throw new Exception("Password is required!");
-                }
-
-                if (retryPassword == String.Empty)
-                {
-                    throw new Exception("Retry Password is required!");
-                }
-
-                if (password != retryPassword)
-                {
-                    throw new Exception("Passwords does not match!");
-                }
-
-                // TODO: ReCaptcha
-
-                if (User.Create(name, email, password))
-                {
-                    Alerts.successMessages.Add("Account created with success!");
+                    Alerts.errorMessages.Add(error.Message);
                 }
             }
-            catch (Exception error)
+            else
             {
-                Alerts.errorMessages.Add(error.Message);
+                Response.Redirect("Index.aspx");
             }
         }
     }
