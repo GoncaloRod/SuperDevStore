@@ -11,13 +11,11 @@ namespace SuperDevStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) Alerts.ClearMessages();
+            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Alerts.ClearMessages();
-
             try
             {
                 string email = txtEmailLogin.Text;
@@ -40,8 +38,6 @@ namespace SuperDevStore
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Alerts.ClearMessages();
-
             try
             {
                 string name = txtNameRegister.Text;

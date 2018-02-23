@@ -22,6 +22,20 @@ namespace SuperDevStore
             return products;
         }
 
+        public static List<Product> AllActive()
+        {
+            List<Product> products = new List<Product>();
+
+            DataTable productsDB = DB.Instance.ExecQuery("SELECT * FROM products WHERE active = 1");
+
+            foreach (DataRow row in productsDB.Rows)
+            {
+                products.Add(new Product(int.Parse(row["id"].ToString()), row["name"].ToString(), decimal.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["stock"].ToString()), bool.Parse(row["active"].ToString())));
+            }
+
+            return products;
+        }
+
         public static DataTable AllDataTable()
         {
             return DB.Instance.ExecQuery("SELECT * FROM products");

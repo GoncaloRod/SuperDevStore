@@ -14,7 +14,7 @@
         <script>window.jQuery || document.write('<script src="/js/jquery-1.12.4.min.js">\x3C/script>')</script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Font Awsome -->
-        <link rel="stylesheet" href="css/fontawsome/fontawesome-all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
         <!-- Custom Style -->
         <link rel="stylesheet" href="css/style.css">
     </head>

@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddToCart.aspx" />
     <Content Include="AdminCreateProduct.aspx" />
     <Content Include="AdminDashboard.aspx" />
     <Content Include="AdminEditProduct.aspx" />
@@ -79,6 +80,7 @@
     <Content Include="AdminProductDetails.aspx" />
     <Content Include="AdminProducts.aspx" />
     <Content Include="AdminUnfinishOrder.aspx" />
+    <Content Include="AllProducts.aspx" />
     <Content Include="App.Master" />
     <Content Include="css\bootstrap\bootstrap-grid.css" />
     <Content Include="css\bootstrap\bootstrap-grid.min.css" />
@@ -128,6 +130,8 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Logout.aspx" />
+    <Content Include="RemoveFromCart.aspx" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="SuperDevStore-CreateTables.sql" />
     <Content Include="SuperDevStore-SeedTables.sql" />
     <Content Include="Web.config">
@@ -135,6 +139,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminApp.Master.cs">
       <DependentUpon>AdminApp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +246,13 @@
       <DependentUpon>AdminUnfinishOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Alerts.cs" />
+    <Compile Include="AllProducts.aspx.cs">
+      <DependentUpon>AllProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllProducts.aspx.designer.cs">
+      <DependentUpon>AllProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,6 +269,21 @@
     </Compile>
     <Compile Include="Mail.cs" />
     <Compile Include="ReCaptcha.cs" />
+    <Compile Include="RemoveFromCart.aspx.cs">
+      <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveFromCart.aspx.designer.cs">
+      <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.cs" />
     <Compile Include="TableClasses\Admin.cs" />
     <Compile Include="App.Master.cs">
       <DependentUpon>App.Master</DependentUpon>

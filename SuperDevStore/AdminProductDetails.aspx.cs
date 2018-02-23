@@ -20,7 +20,7 @@ namespace SuperDevStore
                 if (product != null)
                 {
                     productName.InnerHtml += product.name;
-                    productPrice.InnerHtml += product.price;
+                    productPrice.InnerHtml += string.Format("{0:C}", product.price);
                     productDescription.InnerHtml += product.description;
                     productStock.InnerHtml += product.stock;
                 }
