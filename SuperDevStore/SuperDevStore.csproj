@@ -66,10 +66,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account.aspx" />
     <Content Include="AddToCart.aspx" />
     <Content Include="AdminCreateProduct.aspx" />
     <Content Include="AdminDashboard.aspx" />
+    <Content Include="AdminDisableProduct.aspx" />
     <Content Include="AdminEditProduct.aspx" />
+    <Content Include="AdminEnableProduct.aspx" />
     <Content Include="AdminFinishedOrders.aspx" />
     <Content Include="AdminFinishOrder.aspx" />
     <Content Include="AdminLogin.aspx" />
@@ -132,6 +135,8 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="OrderDetails.aspx" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="RemoveFromCart.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SuperDevStore-CreateTables.sql" />
@@ -141,6 +146,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddToCart.aspx.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,12 +182,26 @@
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminDisableProduct.aspx.cs">
+      <DependentUpon>AdminDisableProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDisableProduct.aspx.designer.cs">
+      <DependentUpon>AdminDisableProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminEditProduct.aspx.cs">
       <DependentUpon>AdminEditProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminEditProduct.aspx.designer.cs">
       <DependentUpon>AdminEditProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEnableProduct.aspx.cs">
+      <DependentUpon>AdminEnableProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEnableProduct.aspx.designer.cs">
+      <DependentUpon>AdminEnableProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminFinishedOrders.aspx.cs">
       <DependentUpon>AdminFinishedOrders.aspx</DependentUpon>
@@ -284,6 +310,20 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mail.cs" />
+    <Compile Include="OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReCaptcha.cs" />
     <Compile Include="RemoveFromCart.aspx.cs">
       <DependentUpon>RemoveFromCart.aspx</DependentUpon>

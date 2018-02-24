@@ -8,23 +8,35 @@ using System.Data;
 
 namespace SuperDevStore
 {
-    public partial class AdminOrderDetails : System.Web.UI.Page
+    public partial class OrderDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!UserAuth.Instance.Check()) Response.Redirect("Index.aspx");
+
             try
             {
                 int id = int.Parse(Request["id"]);
+
+                if (Order.Find(id).User().id != UserAuth.Instance.User().id) throw new Exception("You cannot see other user's orders!");
 
                 Order order = Order.Find(id);
 
                 if (order != null)
                 {
                     // Order's info
-                    buyersName.InnerText += order.User().name;
                     shippingAddress.InnerText += order.shipping_address;
                     shippingMethod.InnerText += order.ShippingMethod().name;
                     orderedAt.InnerText += order.date.ToShortDateString();
+
+                    if (order.done)
+                    {
+                        state.InnerText += "Done";
+                    }
+                    else
+                    {
+                        state.InnerText += "Processing";
+                    }
 
                     // Order's details
                     gvDatails.Columns.Clear();
@@ -66,7 +78,7 @@ namespace SuperDevStore
             {
                 Alerts.errorMessages.Add(error.Message);
 
-                Response.Redirect("Orders.aspx", false);
+                Response.Redirect("Account.aspx", false);
             }
         }
     }

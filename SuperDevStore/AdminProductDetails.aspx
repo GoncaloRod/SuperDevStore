@@ -3,6 +3,11 @@
     <h2>Product Details</h2>
 
     <a class="btn btn-primary btn-sm" href="AdminEditProduct.aspx?id=<% Response.Write(Request["id"].ToString()); %>"><i class="fas fa-pencil-alt"></i> Edit</a>
+    <% if (SuperDevStore.Product.Find(int.Parse(Request["id"])).active) { %>
+        <a class="btn btn-danger btn-sm" href="AdminDisableProduct.aspx?id=<% Response.Write(Request["id"].ToString()); %>&url=<% Response.Write(HttpContext.Current.Request.Url); %>"><i class="fas fa-ban"></i> Disable</a>
+    <% } else { %>
+        <a class="btn btn-success btn-sm" href="AdminEnableProduct.aspx?id=<% Response.Write(Request["id"].ToString()); %>&url=<% Response.Write(HttpContext.Current.Request.Url); %>"><i class="fas fa-check"></i> Enable</a>
+    <% } %>
 
     <ul>
         <li runat="server" id="productName">Name: </li>

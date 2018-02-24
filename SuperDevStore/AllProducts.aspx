@@ -10,6 +10,14 @@
                     <div class="card-body">
                         <h5 class="card-title"><% Response.Write(product.name); %></h5>
                         <p class="card-text"><% Response.Write(string.Format("{0:C}", product.price)); %></p>
+                        <% if (product.stock > 4) { %>
+                            <small style="color: green;">Available</small>
+                        <% } else if (product.stock > 0 ) { %>
+                            <small style="color: orange;">Few Units</small>
+                        <% } else { %>
+                            <small style="color: red;">Out of Stock</small>
+                        <% } %>
+                        <br/>
                         <a href="ProductDetails.aspx?id=<% Response.Write(product.id); %>">Read More</a>
                         <a class="btn btn-primary btn-sm float-right" href="AddToCart.aspx?id=<% Response.Write(product.id); %>&url=<% Response.Write(HttpContext.Current.Request.Url); %>"><i class="fas fa-cart-plus"></i> Add To Cart</a>
                     </div>

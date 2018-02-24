@@ -22,6 +22,11 @@ namespace SuperDevStore
             return visits;
         }
 
+        public static void Create(int ProductId, int UserId)
+        {
+            DB.Instance.ExecSQL($"INSERT INTO products_visits(product_id, user_id) VALUES({ProductId}, {UserId})");
+        }
+
         int id { get; }
         int product_id { get; }
         int user_id { get; }

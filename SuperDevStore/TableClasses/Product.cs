@@ -134,5 +134,20 @@ namespace SuperDevStore
 
             return images;
         }
+
+        public void RemoveFromStock(int units)
+        {
+            DB.Instance.ExecSQL($"UPDATE products SET units = {stock - units} WHERE id = {id}");
+        }
+
+        public void Enable()
+        {
+            DB.Instance.ExecQuery($"UPDATE products SET active = 1 WHERE id = {id}");
+        }
+
+        public void Disable()
+        {
+            DB.Instance.ExecQuery($"UPDATE products SET active = 0 WHERE id = {id}");
+        }
     }
 }

@@ -105,5 +105,43 @@ namespace SuperDevStore
 
             return orders;
         }
+
+        public List<Order> PendingOrders()
+        {
+            List<Order> orders = new List<Order>();
+
+            DataTable ordersDB = DB.Instance.ExecQuery($"SELECT * FROM orders WHERE user_id = {id} AND done = 0");
+
+            foreach (DataRow row in ordersDB.Rows)
+            {
+                orders.Add(new Order(int.Parse(row["id"].ToString()), int.Parse(row["user_id"].ToString()), DateTime.Parse(row["date"].ToString()), row["shipping_address"].ToString(), bool.Parse(row["done"].ToString()), int.Parse(row["shipping_method_id"].ToString())));
+            }
+
+            return orders;
+        }
+
+        public DataTable PendingOrdersDB()
+        {
+            return DB.Instance.ExecQuery($"SELECT * FROM orders WHERE user_id = {id} AND done = 0");
+        }
+
+        public List<Order> FinishedOrders()
+        {
+            List<Order> orders = new List<Order>();
+
+            DataTable ordersDB = DB.Instance.ExecQuery($"SELECT * FROM orders WHERE user_id = {id} AND done = 1");
+
+            foreach (DataRow row in ordersDB.Rows)
+            {
+                orders.Add(new Order(int.Parse(row["id"].ToString()), int.Parse(row["user_id"].ToString()), DateTime.Parse(row["date"].ToString()), row["shipping_address"].ToString(), bool.Parse(row["done"].ToString()), int.Parse(row["shipping_method_id"].ToString())));
+            }
+
+            return orders;
+        }
+
+        public DataTable FinishedOrdersDB()
+        {
+            return DB.Instance.ExecQuery($"SELECT * FROM orders WHERE user_id = {id} AND done = 1");
+        }
     }
 }

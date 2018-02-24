@@ -68,6 +68,8 @@ namespace SuperDevStore
             foreach (Product product in Products)
             {
                 OrderDetail.Create(orderId, product.id, 1, (double)product.price);
+
+                product.RemoveFromStock(1);
             }
         }
 
