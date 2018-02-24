@@ -28,15 +28,9 @@ namespace SuperDevStore
         private static string host = ConfigurationManager.AppSettings["Mail.Host"];
         private static int port = int.Parse(ConfigurationManager.AppSettings["Mail.Port"]);
 
-        private SmtpClient client = new SmtpClient(host, port)
-        {
-            Credentials = new NetworkCredential(username, password),
-            EnableSsl = true
-        };
-
         public void Send(string MailTo, string Subject, string Message)
         {
-            client.Send(fromName, MailTo, Subject, Message);
+            
         }
     }
 }

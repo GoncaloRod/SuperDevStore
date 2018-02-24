@@ -19,7 +19,7 @@ namespace SuperDevStore
 
                 if (product.active)
                 {
-                    ProductVisits.Create(id, UserAuth.Instance.User().id);
+                    if (UserAuth.Instance.Check()) ProductVisits.Create(id, UserAuth.Instance.User().id);
 
                     productName.InnerHtml = product.name;
                     productPrice.InnerHtml = string.Format("{0:C}", product.price);
