@@ -22,6 +22,11 @@ namespace SuperDevStore
             return details;
         }
 
+        public static void Create(int OrderId, int ProductId, int Quantity, double UnitPrice)
+        {
+            DB.Instance.ExecSQL($"INSERT INTO order_details(order_id, product_id, quantity, unit_price) VALUES({OrderId}, {ProductId}, {Quantity}, {UnitPrice})");
+        }
+
         public int id { get; }
         public int order_id { get; }
         public int product_id { get; }

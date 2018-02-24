@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace SuperDevStore
 {
@@ -49,6 +50,25 @@ namespace SuperDevStore
             }
 
             return orders;
+        }
+
+        public static void Create(string ShippingAddress, int ShippingMethodId, List<Product> Products)
+        {
+            string sql = "INSERT INTO orders(user_id, date, shipping_address, shipping_method_id) VALUES(@user_id, @date, @shipping_address, @shipping_method_id); SELECT CAST(SCOPE_IDENTITY() AS INT)";
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter() {ParameterName = "@user_id", SqlDbType = SqlDbType.Int, Value = UserAuth.Instance.User().id},
+                new SqlParameter() {ParameterName = "@date", SqlDbType = SqlDbType.Date, Value = DateTime.Now},
+                new SqlParameter() {ParameterName = "@shipping_address", SqlDbType = SqlDbType.VarChar, Value = ShippingAddress},
+                new SqlParameter() {ParameterName = "@shipping_method_id", SqlDbType = SqlDbType.Int, Value = ShippingMethodId},
+            };
+
+            int orderId = int.Parse(DB.Instance.ExecQuery(sql, parameters).Rows[0][0].ToString());
+
+            foreach (Product product in Products)
+            {
+                OrderDetail.Create(orderId, product.id, 1, (double)product.price);
+            }
         }
 
         public static void FinishOrder(int Id)

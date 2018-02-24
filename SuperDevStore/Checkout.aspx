@@ -8,12 +8,17 @@
                 <label for="txtShippingAddress">Shipping Address</label>
                 <asp:TextBox CssClass="form-control" ID="txtShippingAddress" placeholder="Shipping Address" runat="server"></asp:TextBox>
             </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
             <!-- Shipping Method -->
-            <% foreach (SuperDevStore.ShippingMethod method in SuperDevStore.ShippingMethod.AllActive()) { %>
-            
-            <% } %>
+            <div class="form-group">
+                <label for="ddShippingMethod">Shipping Method</label>
+                <asp:DropDownList ID="ddShippingMethod" CssClass="form-control" runat="server"></asp:DropDownList>
+            </div>
         </div>
     </div>
+    
+    <asp:Button CssClass="btn btn-sm btn-primary float-right" ID="btnConfirm" Text="Confirm" runat="server" OnClick="btnConfirm_Click"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="modals" runat="server">
 </asp:Content>

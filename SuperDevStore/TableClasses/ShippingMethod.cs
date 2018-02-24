@@ -36,6 +36,11 @@ namespace SuperDevStore
             return methods;
         }
 
+        public static DataTable AllActiveDataTable()
+        {
+            return DB.Instance.ExecQuery("SELECT * FROM shipping_methods WHERE active = 1");
+        }
+
         public int id { get; }
         public string name { get; }
         public bool active { get; }

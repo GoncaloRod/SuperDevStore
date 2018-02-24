@@ -28,6 +28,8 @@ namespace SuperDevStore
                 else
                 {
                     Alerts.successMessages.Add($"Wellcome back {UserAuth.Instance.User().name}");
+
+                    Response.Redirect("Index.aspx", false);
                 }
             }
             catch (Exception error)
@@ -71,9 +73,12 @@ namespace SuperDevStore
                 }
 
                 // TODO: ReCaptcha
+
                 if (SuperDevStore.User.Create(name, email, password))
                 {
                     Alerts.successMessages.Add("Account created with success!");
+
+                    Response.Redirect("Index.aspx", false);
                 }
             }
             catch (Exception error)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace SuperDevStore
 {
@@ -76,7 +77,16 @@ namespace SuperDevStore
 
         public static int Create(string Name, double Price, string Description, int Stock)
         {
-            return int.Parse(DB.Instance.ExecQuery($"INSERT INTO products(name, price, description, stock) VALUES('{Name}', {Price}, '{Description}', {Stock});SELECT CAST(SCOPE_IDENTITY() AS INT);").Rows[0][0].ToString());
+            string sql = "INSERT INTO products(name, price, description, stock) VALUES('@ame', @price, @description, @stock); SELECT CAST(SCOPE_IDENTITY() AS INT)";
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter() {ParameterName = "@name", SqlDbType = SqlDbType.VarChar, Value = Name},
+                new SqlParameter() {ParameterName = "@price", SqlDbType = SqlDbType.Money, Value = Price},
+                new SqlParameter() {ParameterName = "@description", SqlDbType = SqlDbType.Text, Value = Description},
+                new SqlParameter() {ParameterName = "@stock", SqlDbType = SqlDbType.Int, Value = Stock},
+            };
+
+            return int.Parse(DB.Instance.ExecQuery(sql, parameters).Rows[0][0].ToString());
         }
 
         public int id { get; }
@@ -98,7 +108,17 @@ namespace SuperDevStore
 
         public void Update(string Name, double Price, string Description, int Stock)
         {
-            DB.Instance.ExecSQL($"UPDATE products SET name = '{Name}', price = {Price}, description = '{Description}', stock = {Stock} WHERE id = {id}");
+            string sql = "UPDATE products SET name = @name, price = @price, description = @description, stock = @stock WHERE id = @id";
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter() {ParameterName = "@name", SqlDbType = SqlDbType.VarChar, Value = Name},
+                new SqlParameter() {ParameterName = "@price", SqlDbType = SqlDbType.Money, Value = Price},
+                new SqlParameter() {ParameterName = "@description", SqlDbType = SqlDbType.Text, Value = Description},
+                new SqlParameter() {ParameterName = "@stock", SqlDbType = SqlDbType.Int, Value = Stock},
+                new SqlParameter() {ParameterName = "@id", SqlDbType = SqlDbType.Int, Value = id},
+            };
+
+            DB.Instance.ExecSQL(sql, parameters);
         }
 
         public List<ProductImage> Images()
