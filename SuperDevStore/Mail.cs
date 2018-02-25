@@ -30,7 +30,28 @@ namespace SuperDevStore
 
         public void Send(string MailTo, string Subject, string Message)
         {
-            
+            MailMessage message = new MailMessage();
+            NetworkCredential credential = new NetworkCredential(username, password);
+            MailAddress from = new MailAddress(fromName);
+            SmtpClient client = new SmtpClient();
+
+            // Message
+            message.To.Add(MailTo);
+            message.From = from;
+            message.Subject = Subject;
+            message.Body = Message;
+            message.IsBodyHtml = true;
+
+            // Server
+            client.Host = host;
+            client.Port = port;
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = credential;
+
+            // Send Mail
+            client.Send(message);
         }
     }
 }

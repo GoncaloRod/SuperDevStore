@@ -77,7 +77,7 @@ namespace SuperDevStore
 
         public static int Create(string Name, double Price, string Description, int Stock)
         {
-            string sql = "INSERT INTO products(name, price, description, stock) VALUES('@ame', @price, @description, @stock); SELECT CAST(SCOPE_IDENTITY() AS INT)";
+            string sql = "INSERT INTO products(name, price, description, stock) VALUES(@name, @price, @description, @stock); SELECT CAST(SCOPE_IDENTITY() AS INT)";
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
                 new SqlParameter() {ParameterName = "@name", SqlDbType = SqlDbType.VarChar, Value = Name},

@@ -3,18 +3,28 @@
     <%
         List<SuperDevStore.Product> products = SuperDevStore.Product.All();
 
-        int arrayLenght = 4;
+        SuperDevStore.Product[] sugentions;
 
-        if (products.Count < 4) arrayLenght = products.Count;
-
-        SuperDevStore.Product[] sugentions = new SuperDevStore.Product[arrayLenght];
-
-        Random random = new Random();
-
-        for (int i = 0; i < arrayLenght; i++)
+        if (products.Count > 4)
         {
-            sugentions[i] = products[random.Next(0, products.Count - 1)];
-            products.Remove(products[i]);
+            sugentions = new SuperDevStore.Product[4];
+
+            Random random = new Random();
+
+            for (int i = 0; i < 4; i++)
+            {
+                sugentions[i] = products[random.Next(0, products.Count - 1)];
+                products.Remove(products[i]);
+            }
+        }
+        else
+        {
+            sugentions = new SuperDevStore.Product[products.Count];
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                sugentions[i] = products[i];
+            }
         }
     %>
 
